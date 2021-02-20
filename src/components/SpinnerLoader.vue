@@ -26,29 +26,14 @@ export default {
     },
     computed : {
         classes() {
-            const classes = ['loader'];
-
-            if (this.center)
-                classes.push('centered');
-
-            if (this.light)
-                classes.push('light');
-
-            switch (this.size) {
-                case 'xs':
-                    classes.push('tiny');
-                    break;
-                case 'sm':
-                    classes.push('small');
-                    break;
-                case 'lg':
-                    classes.push('large');
-                    break;
-                default:
-                    break;
-            }
-
-            return classes;
+            return {
+                loader : true,
+                centered : this.center,
+                light : this.light,
+                tiny : this.size === 'xs',
+                small : this.size === 'sm',
+                large : this.size === 'lg',
+            };
         }
     }
 };
